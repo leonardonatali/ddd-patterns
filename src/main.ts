@@ -13,3 +13,5 @@ const item1 = new OrderItem("order_item_1_id", "test-item1", 123.45)
 const item2 = new OrderItem("order_item_2_id", "test-item2", 123.45)
 
 const order = new Order("order_id", "customer_id", [item1, item2])
+
+console.log(order)
