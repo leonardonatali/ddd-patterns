@@ -24,7 +24,10 @@ describe("order unit tests", () => {
 		const item1 = new OrderItem("test-id", "test-name", 1)
 		const item2 = new OrderItem("test-id2", "test-name2", 2)
 
-		const order = new Order("test-id", "test-customer-id", [item1, item2])
-		expect(order.Total).toEqual(3)
+		const order = new Order("test-id", "test-customer-id", [item1])
+		expect(order.Total).toEqual(1)
+		
+		const order2 = new Order("test-id", "test-customer-id", [item1, item2])
+		expect(order2.Total).toEqual(3)
 	})
 })
