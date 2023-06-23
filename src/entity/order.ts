@@ -10,7 +10,7 @@ export default class Order {
 		this.id = id
 		this.customerId = customerId
 		this.items = items 
-		this.total = items.reduce((total, item) => total + item.Price , 0)
+		this.total = items.reduce((total, item) => total + item.Total, 0)
 
 		this.validate()
 	}

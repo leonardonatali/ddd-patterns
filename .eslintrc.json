@@ -32,6 +32,7 @@
                 "avoidEscape": true
             }
         ],
+        "comma-spacing": "error",
         "no-multi-spaces": "error",
         "space-before-function-paren": "off",
         "indent": [
