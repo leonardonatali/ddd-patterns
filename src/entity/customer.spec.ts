@@ -52,4 +52,20 @@ describe("customer unit tests", () => {
 		customer.Deactivate()
 		expect(customer.IsActive).toBe(false)
 	})
+
+	it("should increase reward points", () => {
+		const customer = new Customer("test-id", "test-name")
+		
+		customer.IncreaseRewardPoints(1)
+		customer.IncreaseRewardPoints(100)
+
+		expect(customer.RewardPoints).toBe(101)
+	})
+
+	it("should throw error if reward points are invalid", () => {
+		const customer = new Customer("test-id", "test-name")
+		customer.IncreaseRewardPoints(1)
+		expect(()=>{customer.IncreaseRewardPoints(-1)}).toThrowError("reward points must be greater than 0")
+		expect(customer.RewardPoints).toBe(1)
+	})
 })

@@ -5,11 +5,14 @@ export default class Customer {
 	private name: string
 	private active: boolean
 	private address?: Address
+	private rewardPoints: number
+
 
 	constructor (id: string, name: string) {
 		this.id = id
 		this.name = name
-		this.active = true 
+		this.active = true
+		this.rewardPoints = 0
 		
 		this.validate()
 	}
@@ -28,6 +31,10 @@ export default class Customer {
 		this.validate()
 	}
 
+	get Id (): string { 
+		return this.id
+	}
+
 	get Name (): string { 
 		return this.name
 	}
@@ -40,6 +47,10 @@ export default class Customer {
 		return this.active
 	}
 
+	get RewardPoints (): number {
+		return this.rewardPoints
+	}
+
 	Activate (): void {
 		if (!this.address) {
 			throw new Error("Client must have an address to be activated")		
@@ -50,5 +61,13 @@ export default class Customer {
 
 	Deactivate (): void {
 		this.active = false
+	}
+
+	IncreaseRewardPoints (points: number): void {
+		if (points <= 0) {
+			throw new Error("reward points must be greater than 0")
+		}
+
+		this.rewardPoints += points
 	}
 }
