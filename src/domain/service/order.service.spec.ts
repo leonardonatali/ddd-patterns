@@ -22,13 +22,21 @@ describe("order servic unit tests", () => {
         
 		const item1 = new OrderItem("1", "1", "item1", 100, 1)
 		const item2 = new OrderItem("2", "2", "item2", 200, 2)
-		const order1 = new Order("1", customer.Id, [item1, item2]) 
         
 		const service = new OrderService()
-		service.placeOrder(customer, [order1])
+		const order = service.placeOrder(customer, [item1, item2])
 
        
-		expect(order1.Total).toEqual(500)
+		expect(order.Total).toEqual(500)
 		expect(customer.RewardPoints).toEqual(250)
+	})
+
+	it("should throw error if place an order with no items", () => {
+		const customer = new Customer("1", "test customer")        
+		const service = new OrderService()
+       
+		expect(() => service.placeOrder(customer, [])).toThrowError("items must have at least one item")
+
+		expect(customer.RewardPoints).toEqual(0)
 	})
 })
