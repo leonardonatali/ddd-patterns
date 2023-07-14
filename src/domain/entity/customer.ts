@@ -1,73 +1,73 @@
 import Address from "./address"
 
 export default class Customer {
-	private id: string
-	private name: string
-	private active: boolean
-	private address?: Address
-	private rewardPoints: number
+  private id: string
+  private name: string
+  private active: boolean
+  private address?: Address
+  private rewardPoints: number
 
 
-	constructor (id: string, name: string) {
-		this.id = id
-		this.name = name
-		this.active = true
-		this.rewardPoints = 0
-		
-		this.validate()
-	}
+  constructor(id: string, name: string) {
+    this.id = id
+    this.name = name
+    this.active = true
+    this.rewardPoints = 0
 
-	validate (): void {
-		if (this.id.length === 0) {
-			throw new Error("ID is required")
-		}
-		if (this.name.length === 0) {
-			throw new Error("Name is required")
-		}
-	}
+    this.validate()
+  }
 
-	ChangeName (name: string) {
-		this.name = name
-		this.validate()
-	}
+  validate(): void {
+    if (this.id.length === 0) {
+      throw new Error("ID is required")
+    }
+    if (this.name.length === 0) {
+      throw new Error("Name is required")
+    }
+  }
 
-	get Id (): string { 
-		return this.id
-	}
+  ChangeName(name: string) {
+    this.name = name
+    this.validate()
+  }
 
-	get Name (): string { 
-		return this.name
-	}
+  get Id(): string {
+    return this.id
+  }
 
-	set Address (address: Address) {
-		this.address = address
-	}
+  get Name(): string {
+    return this.name
+  }
 
-	get IsActive (): boolean {
-		return this.active
-	}
+  set Address(address: Address) {
+    this.address = address
+  }
 
-	get RewardPoints (): number {
-		return this.rewardPoints
-	}
+  get IsActive(): boolean {
+    return this.active
+  }
 
-	Activate (): void {
-		if (!this.address) {
-			throw new Error("Client must have an address to be activated")		
-		}
+  get RewardPoints(): number {
+    return this.rewardPoints
+  }
 
-		this.active = true
-	}
+  Activate(): void {
+    if (!this.address) {
+      throw new Error("Client must have an address to be activated")
+    }
 
-	Deactivate (): void {
-		this.active = false
-	}
+    this.active = true
+  }
 
-	IncreaseRewardPoints (points: number): void {
-		if (points <= 0) {
-			throw new Error("reward points must be greater than 0")
-		}
+  Deactivate(): void {
+    this.active = false
+  }
 
-		this.rewardPoints += points
-	}
+  IncreaseRewardPoints(points: number): void {
+    if (points <= 0) {
+      throw new Error("reward points must be greater than 0")
+    }
+
+    this.rewardPoints += points
+  }
 }

@@ -1,64 +1,64 @@
 export default class OrderItem {
-	private id: string
-	private productId: string
-	private name: string
-	private price: number
-	private quantity: number
+  private id: string
+  private productId: string
+  private name: string
+  private price: number
+  private quantity: number
 
-	constructor(id: string, productId: string, name: string, price: number, quantity: number) {
-		this.id = id
-		this.productId = productId
-		this.name = name 
-		this.price = price
-		this.quantity = quantity
+  constructor(id: string, productId: string, name: string, price: number, quantity: number) {
+    this.id = id
+    this.productId = productId
+    this.name = name
+    this.price = price
+    this.quantity = quantity
 
-		this.validate()
-	}
+    this.validate()
+  }
 
-	validate(): void {
-		if (this.id.trim().length === 0) {
-			throw new Error("id is required")
-		}
+  validate(): void {
+    if (this.id.trim().length === 0) {
+      throw new Error("id is required")
+    }
 
-		if (this.productId.trim().length === 0) {
-			throw new Error("product id is required")
-		}
-		
-		if (this.name.trim().length === 0) {
-			throw new Error("name is required")
-		}
-		
-		if (this.price <= 0) {
-			throw new Error("price must be greater than 0")
-		}
+    if (this.productId.trim().length === 0) {
+      throw new Error("product id is required")
+    }
 
-		if (this.quantity <= 0) {
-			throw new Error("quantity must be greater than 0")
-		}
-	}
+    if (this.name.trim().length === 0) {
+      throw new Error("name is required")
+    }
 
-	get Id(): string {
-		return this.id
-	}
+    if (this.price <= 0) {
+      throw new Error("price must be greater than 0")
+    }
 
-	get Name(): string {
-		return this.name
-	}
+    if (this.quantity <= 0) {
+      throw new Error("quantity must be greater than 0")
+    }
+  }
 
-	get ProductId(): string {
-		return this.productId
-	}
+  get Id(): string {
+    return this.id
+  }
 
-	get Price(): number { 
-		return this.price
-	}
+  get Name(): string {
+    return this.name
+  }
 
-	get Total(): number { 
-		return this.Price * this.Quantity
-	}
+  get ProductId(): string {
+    return this.productId
+  }
 
-	get Quantity(): number { 
-		return this.quantity
-	}
+  get Price(): number {
+    return this.price
+  }
+
+  get Total(): number {
+    return this.Price * this.Quantity
+  }
+
+  get Quantity(): number {
+    return this.quantity
+  }
 
 }

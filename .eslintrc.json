@@ -25,6 +25,29 @@
             "error",
             "never"
         ],
+        "no-mixed-spaces-and-tabs": "error",
+        "no-trailing-spaces": "error",
+        "object-curly-spacing": [
+            "error",
+            "never"
+        ],
+        "array-bracket-spacing": [
+            "error",
+            "never"
+        ],
+        "computed-property-spacing": [
+            "error",
+            "never"
+        ],
+        "no-spaced-func": "error",
+        "space-before-function-paren": [
+            "error",
+            "never"
+        ],
+        "space-in-parens": [
+            "error",
+            "never"
+        ],
         "quotes": [
             2,
             "double",
@@ -34,14 +57,14 @@
         ],
         "comma-spacing": "error",
         "no-multi-spaces": "error",
-        "space-before-function-paren": "off",
         "indent": [
             "error",
-            "tab"
+            2
         ]
     },
     "ignorePatterns": [
         "dist/",
-        "node_modules"
+        "node_modules",
+        "coverage/"
     ]
 }
